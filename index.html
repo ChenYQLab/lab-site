@@ -1645,7 +1645,331 @@ a {
   .site-header {
     position: relative;
   }
-}</style>
+}
+
+/* LAB SITE CONTENT + LAYOUT V2: centralized typography and directory layout. */
+:root {
+  --site-body-font: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --site-heading-font: Georgia, "Songti SC", "STSong", serif;
+  --site-body-size: 16px;
+  --site-nav-size: 14px;
+  --site-hero-title-size: clamp(46px, 5.25vw, 72px);
+  --site-section-title-size: clamp(39px, 5vw, 62px);
+  --site-card-title-size: 22px;
+  --site-small-text-size: 13px;
+  --site-body-line-height: 1.75;
+  --site-section-spacing: 120px;
+}
+
+body,
+button,
+input,
+textarea,
+select {
+  font-family: var(--site-body-font);
+  font-size: var(--site-body-size);
+}
+
+.top-nav {
+  font-size: var(--site-nav-size);
+}
+
+.hero h1 {
+  font-family: var(--site-heading-font);
+  font-size: var(--site-hero-title-size) !important;
+}
+
+.about h2,
+.section-heading h2,
+.join-section h2,
+.page-hero h1,
+.directory-heading h2,
+.pi-spotlight-copy h2 {
+  font-family: var(--site-heading-font);
+}
+
+.about h2,
+.section-heading h2,
+.join-section h2 {
+  font-size: var(--site-section-title-size);
+}
+
+.publication-row h3,
+.news-row h3,
+.team-directory-card h3,
+.project-card h3 {
+  font-size: var(--site-card-title-size);
+}
+
+.publication-row p,
+.news-row p,
+.team-directory-card > p:last-child,
+.metric-link,
+.project-card p {
+  font-size: var(--site-small-text-size);
+  line-height: var(--site-body-line-height);
+}
+
+.about,
+.research-section,
+.publications,
+.people-section,
+.news {
+  padding-block: var(--site-section-spacing);
+}
+
+.metric-link {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 8px;
+  margin-top: 7px;
+  padding-bottom: 3px;
+  border-bottom: 1px solid transparent;
+  color: var(--ink-soft);
+  transition: color 180ms ease, border-color 180ms ease;
+}
+
+.metric-link:hover,
+.metric-link:focus-visible {
+  border-color: var(--orange);
+  color: var(--orange);
+  outline: none;
+}
+
+.metric-link span[aria-hidden="true"] {
+  font-size: 11px;
+}
+
+.member-card {
+  text-align: center;
+}
+
+.member-card .avatar {
+  width: 104px;
+  height: 104px;
+  margin: 0 auto 30px;
+  border-radius: 50%;
+}
+
+.member-card .avatar img {
+  object-fit: cover;
+  object-position: center 18%;
+}
+
+.team-pi-card {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr) auto;
+  gap: 42px;
+  align-items: center;
+  margin-bottom: 78px;
+  padding: 42px;
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  background: var(--paper);
+}
+
+.team-pi-portrait {
+  width: 180px;
+  height: 180px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: #fff;
+}
+
+.team-pi-portrait img,
+.team-pi-portrait .image-fallback {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+  object-fit: cover;
+  object-position: center 18%;
+  color: var(--green);
+  font-family: var(--site-heading-font);
+  font-size: 38px;
+}
+
+.team-pi-copy h2 {
+  margin: 0;
+  font-family: var(--site-heading-font);
+  font-size: clamp(34px, 4vw, 52px);
+  font-weight: 500;
+}
+
+.team-pi-copy > strong {
+  display: block;
+  margin-top: 14px;
+  color: var(--green);
+  font-size: 14px;
+}
+
+.team-pi-copy > p:last-of-type {
+  max-width: 760px;
+  margin: 18px 0 0;
+  color: var(--ink-soft);
+  line-height: var(--site-body-line-height);
+}
+
+.team-group + .team-group {
+  margin-top: 76px;
+}
+
+.team-group-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 28px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--ink);
+}
+
+.team-group-heading h2 {
+  margin: 0;
+  font-family: var(--site-heading-font);
+  font-size: clamp(30px, 4vw, 46px);
+  font-weight: 500;
+}
+
+.team-group-heading span {
+  color: var(--ink-soft);
+  font-family: ui-monospace, monospace;
+  font-size: 12px;
+}
+
+.team-directory-grid {
+  gap: 22px;
+  border: 0;
+}
+
+.team-directory-card {
+  padding: 30px 24px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.56);
+  text-align: center;
+}
+
+.team-directory-card .avatar {
+  width: 156px;
+  height: 156px;
+  margin: 0 auto 24px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+}
+
+.team-directory-card .avatar img {
+  object-fit: cover;
+  object-position: center 18%;
+}
+
+.team-directory-card .person-name-en {
+  min-height: 18px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.project-card {
+  display: flex;
+  min-height: 250px;
+  flex-direction: column;
+  padding: 34px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.56);
+}
+
+.project-card .project-status {
+  width: fit-content;
+  margin-bottom: 24px;
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--orange);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.project-card h3 {
+  margin: 0;
+  font-family: var(--site-heading-font);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.project-card p {
+  margin: 18px 0 0;
+  color: var(--ink-soft);
+}
+
+.project-card footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 28px;
+}
+
+.project-card footer span {
+  padding: 6px 9px;
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink-soft);
+  font-size: 11px;
+}
+
+@media (max-width: 980px) {
+  .team-pi-card {
+    grid-template-columns: 170px minmax(0, 1fr);
+  }
+
+  .team-pi-portrait {
+    width: 160px;
+    height: 160px;
+  }
+
+  .team-pi-card .button {
+    grid-column: 2;
+    justify-self: start;
+  }
+}
+
+@media (max-width: 720px) {
+  :root {
+    --site-section-spacing: 82px;
+  }
+
+  .team-pi-card {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 28px;
+  }
+
+  .team-pi-card .button {
+    grid-column: auto;
+  }
+
+  .team-pi-portrait {
+    width: 140px;
+    height: 140px;
+  }
+
+  .team-directory-card .avatar {
+    width: 132px;
+    height: 132px;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+:root{--site-body-font: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;--site-heading-font: Georgia, "Songti SC", "STSong", serif;--site-body-size: 16px;--site-nav-size: 14px;--site-hero-title-size: clamp(46px, 5.25vw, 72px);--site-section-title-size: clamp(39px, 5vw, 62px);--site-card-title-size: 22px;--site-small-text-size: 13px;--site-body-line-height: 1.75;--site-section-spacing: 120px;}</style>
 </head>
 <body data-export-locale="en">
   <div class="locale-view" data-view="en" data-title="Laboratory of Respiratory Viral Infection, Immunity and Vaccine Development">
@@ -1690,18 +2014,18 @@ a {
         <div class="pi-spotlight-copy"><p class="person-role">PRINCIPAL INVESTIGATOR</p><h2>Yao-qing Chen</h2><p class="person-name-en"></p><strong>Professor / PhD Supervisor / Vice Dean</strong><p>His research focuses on respiratory virus immunity, broadly protective vaccines, and antibody therapeutics, with particular interests in protective influenza HA/NA antigens, mucosal immunity against SARS-CoV-2, and B-cell immune responses. His team works to translate fundamental immunological discoveries into innovative vaccines, therapeutic antibodies, and clinical applications.</p><a class="text-link text-link-light" href="mailto:chenyaoqing@mail.sysu.edu.cn">Contact the PI <span aria-hidden="true">↗</span></a></div>
       </article>
     </section>
-      <section class="metrics section-shell" aria-label="Laboratory overview"><div class="metric"><strong>4</strong><span>Research areas</span></div><div class="metric"><strong>20+</strong><span>Team members · sample</span></div><div class="metric"><strong>20+</strong><span>Publications · sample</span></div><div class="metric"><strong>9</strong><span>Research projects · sample</span></div></section>
+      <section class="metrics section-shell" aria-label="Laboratory overview"><div class="metric"><strong>4</strong><a class="metric-link" href="#en-research">Research areas <span aria-hidden="true">↗</span></a></div><div class="metric"><strong>20+</strong><a class="metric-link" href="#en-team">Team members <span aria-hidden="true">↗</span></a></div><div class="metric"><strong>20+</strong><a class="metric-link" href="#en-publications">Publications <span aria-hidden="true">↗</span></a></div><div class="metric"><strong>9</strong><a class="metric-link" href="./projects.html">Research projects <span aria-hidden="true">↗</span></a></div></section>
       <section class="about section-shell section-grid" id="en-about"><div><p class="section-kicker">ABOUT THE LAB</p><h2>From Immune Mechanisms to Broadly Protective Vaccine Design</h2></div><div class="about-copy"><p>Our laboratory focuses on immunity to respiratory viral infections, including influenza and SARS-CoV-2, and the development of next-generation vaccines. We investigate B-cell immune responses, antibody immunity, and BCR repertoires in the context of viral evolution, with the goal of identifying conserved antigenic targets and the mechanisms underlying broad and durable immune protection.</p><p>By integrating single-cell sequencing, BCR repertoire profiling, high-throughput human monoclonal antibody screening, structural bioinformatics, and AI-assisted protein design, we pursue rational immunogen design targeting key viral antigens such as influenza HA and NA. Our research aims to advance broadly protective influenza vaccines, mucosal vaccines against SARS-CoV-2, and therapeutic human monoclonal antibodies from discovery toward clinical translation.</p><blockquote>We uncover the mechanisms of immunity and translate them into rational designs for broader and more durable protection.</blockquote></div></section>
       <section class="research-section" id="en-research"><div class="section-shell"><div class="section-heading"><div><p class="section-kicker">RESEARCH</p><h2>Our research</h2></div><p>We pursue four interconnected research directions spanning vaccines, antibodies, and B-cell immunity to achieve broad protection against respiratory viruses.</p></div><div class="research-grid"><article class="research-card"><span class="card-number">01</span><div><h3>Broadly Protective Influenza Vaccines</h3><p class="title-en">广谱流感疫苗</p></div><p>We investigate conserved protective epitopes and broadly reactive antibody responses to key influenza antigens, including HA and NA, and integrate reverse vaccinology, structural prediction, and immunogen design to develop vaccines with broad protection across influenza subtypes and variants.</p><ul aria-label="Broadly Protective Influenza Vaccines methods"><li>HA / NA</li><li>Conserved Epitopes</li><li>Reverse Vaccinology</li></ul></article><article class="research-card"><span class="card-number">02</span><div><h3>Broadly Protective Mucosal Vaccines against SARS-CoV-2</h3><p class="title-en">广谱新冠黏膜疫苗</p></div><p>We develop broadly protective immunogens and mucosal vaccine strategies against SARS-CoV-2, with a focus on intranasal immunization, IgA-mediated mucosal immunity, and systemic responses that enhance cross-variant protection and reduce viral transmission.</p><ul aria-label="Broadly Protective Mucosal Vaccines against SARS-CoV-2 methods"><li>RBD Immunogens</li><li>Mucosal Immunity</li><li>IgA</li></ul></article><article class="research-card"><span class="card-number">03</span><div><h3>Therapeutic Human Monoclonal Antibodies</h3><p class="title-en">治疗性人源单克隆抗体</p></div><p>We identify and characterize broadly protective human monoclonal antibodies through high-throughput screening and functional assays, define their antigenic epitopes and mechanisms of action, and advance promising candidates toward therapeutic development and clinical translation.</p><ul aria-label="Therapeutic Human Monoclonal Antibodies methods"><li>Human mAbs</li><li>High-throughput Screening</li><li>Clinical Translation</li></ul></article><article class="research-card"><span class="card-number">04</span><div><h3>B-cell Immune Responses &amp; BCR Repertoires</h3><p class="title-en">B细胞免疫应答与BCR免疫组库</p></div><p>Using single-cell sequencing and BCR repertoire profiling, we characterize B-cell clonal expansion, germline gene usage, and antibody responses following viral infection and vaccination, providing mechanistic insights to guide the rational design of broadly protective vaccines.</p><ul aria-label="B-cell Immune Responses &amp; BCR Repertoires methods"><li>Single-cell Sequencing</li><li>BCR Repertoire</li><li>Clonal Evolution</li></ul></article></div></div></section>
-      <section class="publications section-shell" id="en-publications"><div class="section-heading"><div><p class="section-kicker">FEATURED WORK</p><h2>Featured publications</h2></div><a class="text-link" href="./publications.html">View all publications <span aria-hidden="true">↗</span></a></div><div class="publication-list"><article class="publication-row"><div class="publication-meta"><span>2018</span><span>Research Article</span></div><div><h3>Influenza Infection in Humans Induces Broadly Cross-Reactive and Protective Neuraminidase-Reactive Antibodies</h3><p>Chen YQ, Wohlbold TJ, Wilson PC*</p><strong>Cell</strong></div><span></span></article><article class="publication-row"><div class="publication-meta"><span>2026</span><span>Research Article</span></div><div><h3>Human monoclonal antibodies isolated after seasonal vaccination broadly neutralize antigenically drifted influenza B viruses.</h3><p>Cai X, Fan M, Chen YQ*</p><strong>Cell Host &amp; Microbe</strong></div><span></span></article><article class="publication-row"><div class="publication-meta"><span>2023</span><span>Research Article</span></div><div><h3>The protective nasal boosting of a triple-RBD subunit vaccine against SARS-CoV-2 following inactivated virus vaccination</h3><p>Yang J, Liu MQ, Chen YQ*, Shi ZL*</p><strong>Signal Transduction and Targeted Therapy</strong></div><span></span></article></div></section>
+      <section class="publications section-shell" id="en-publications"><div class="section-heading"><div><p class="section-kicker">FEATURED WORK</p><h2>Featured publications</h2></div><a class="text-link" href="./publications.html">View all publications <span aria-hidden="true">↗</span></a></div><div class="publication-list"><a class="publication-row" href="https://doi.org/10.1016/j.chom.2026.02.018" target="_blank" rel="noopener noreferrer"><div class="publication-meta"><span>2026</span><span>Research Article</span></div><div><h3>Human Monoclonal Antibodies Isolated after Seasonal Vaccination Broadly Neutralize Antigenically Drifted Influenza B Viruses</h3><p>Xiaoyu Cai, Miao Fan, Yanmei Zhai, Wanyu Luo, Shuning Liu, Kexin Lv, Min Zhao, Lin Liu, Siwei Zhou, Mengxin Xu, Bing He, Yuzhu Sun, Ruixin Zhao, Xingchen Zhu, Yu Kuang, Hongjie Lu, Xinyu Yue, Kuibiao Li, Yu Zhang, Li Yuan, Na Zhou, Feng Ye, Huan Liang, Yiyun Chen, Min Zheng, Zhangyong Hong, Dayan Wang, Zeli Zhang, Yue-Long Shu, Jiwan Ge, Yao-Qing Chen</p><strong>Cell Host &amp; Microbe</strong></div><span aria-hidden="true">↗</span></a><a class="publication-row" href="https://doi.org/10.1038/s41467-025-62040-1" target="_blank" rel="noopener noreferrer"><div class="publication-meta"><span>2025</span><span>Research Article</span></div><div><h3>Broad Neuraminidase Antibodies Confer Protection against Seasonal and Avian Influenza Viruses</h3><p>Kexin Lv, Xiaoman Li, Xingchen Zhu, Jian-Piao Cai, Shuning Liu, Yuzhu Sun, Lin Liu, Xiaoyu Cai, Rui Cao, Mengxin Xu, Xinyu Yue, Yanmei Zhai, Wanyu Luo, Hongjie Lu, Ruiying Li, Haoting Mai, Lei Deng, Feng Ye, Shifeng Chen, Mang Shi, Huanle Luo, Xinquan Wang, Shuofeng Yuan, Yuelong Shu, Jiwan Ge, Yao-Qing Chen</p><strong>Nature Communications</strong></div><span aria-hidden="true">↗</span></a><a class="publication-row" href="https://doi.org/10.1016/j.antiviral.2025.106082" target="_blank" rel="noopener noreferrer"><div class="publication-meta"><span>2025</span><span>Research Article</span></div><div><h3>IgA Class Switching Enhances Neutralizing Potency against SARS-CoV-2 by Increased Antibody Hinge Flexibility</h3><p>Mengxin Xu, Zhaoyong Zhang, Yuzhu Sun, Haoting Mai, Siqi Liu, Shuning Liu, Kexin Lv, Feiyang Yu, Yuanyuan Wang, Xinyu Yue, Jiayi Zhang, Xiaoyu Cai, Ruixin Zhao, Hongjie Lu, Lin Liu, Huanle Luo, Haiyan Zhao, Yanqun Wang, Peng Gong, Shoudeng Chen, Xuping Jing, Jincun Zhao, Yao-Qing Chen</p><strong>Antiviral Research</strong></div><span aria-hidden="true">↗</span></a></div></section>
       <section class="people-section" id="en-team"><div class="section-shell"><div class="section-heading"><div><p class="section-kicker">TEAM</p><h2>Our team</h2></div><div class="section-heading-action"><p>Bringing together diverse expertise to uncover immune mechanisms and advance innovation in vaccines and antibodies.</p><a class="text-link text-link-light" href="./team.html">Meet the full team <span aria-hidden="true">↗</span></a></div></div><div class="member-grid">
     <article class="member-card">
       <div class="avatar"><span class="image-fallback">A</span></div>
       <h3>Member A</h3><p class="person-name-en">成员姓名 A</p><strong>Postdoctoral Fellow</strong><p>Viral immunity and single-cell omics</p>
     </article>
     <article class="member-card">
-      <div class="avatar"><span class="image-fallback">B</span></div>
-      <h3>Member B</h3><p class="person-name-en">成员姓名 B</p><strong>PhD Student</strong><p>TCR/BCR immune repertoires</p>
+      <div class="avatar"><img class="" src="./assets/people/liu-shuning.png" alt="Shu-ning Liu" style="object-position: center 18%"></div>
+      <h3>Shu-ning Liu</h3><p class="person-name-en">刘舒宁</p><strong>Postdoctoral Fellow</strong><p>BCR immune repertoires</p>
     </article>
     <article class="member-card">
       <div class="avatar"><span class="image-fallback">C</span></div>
@@ -1733,7 +2057,7 @@ a {
       <div class="section-shell footer-grid">
         <div><span class="footer-mark brand-mark-logo"><img class="" src="./assets/brand/lab-logo.jpg" alt=""></span><h2>Laboratory of Respiratory Viral Infection, Immunity and Vaccine Development</h2><p>呼吸道病毒感染免疫与疫苗研发实验室</p></div>
         <div><p class="footer-label">CONTACT</p><a href="mailto:chenyaoqing@mail.sysu.edu.cn">chenyaoqing@mail.sysu.edu.cn</a><p>School of Public Health (Shenzhen), Sun Yat-sen University, No. 66 Gongchang Road, Xinhu Subdistrict, Guangming District, Shenzhen, Guangdong, China</p><p>Room 608, West Wing, Building 1, Medical Park</p><p>Postcode: 518107</p></div>
-        <div><p class="footer-label">LINKS</p><a href="#en-research">Research</a><a href="./publications.html">Publications</a><a href="./team.html">Team</a><a href="./news.html">News</a><a href="#en-join">Join Us</a></div>
+        <div><p class="footer-label">LINKS</p><a href="#en-research">Research</a><a href="./projects.html">Projects</a><a href="./publications.html">Publications</a><a href="./team.html">Team</a><a href="./news.html">News</a><a href="#en-join">Join Us</a></div>
       </div>
       <div class="footer-bottom section-shell"><span>© 2026 Laboratory of Respiratory Viral Infection, Immunity and Vaccine Development</span></div>
     </footer>
@@ -1780,18 +2104,18 @@ a {
         <div class="pi-spotlight-copy"><p class="person-role">PRINCIPAL INVESTIGATOR</p><h2>陈耀庆</h2><p class="person-name-en"></p><strong>教授 / 博士生导师 / 生物安全学院 副院长</strong><p>聚焦呼吸道病毒感染免疫、广谱疫苗与抗体药物研发，围绕流感病毒NA/HA保护性抗原、新冠黏膜免疫及B细胞免疫应答开展研究，推动基础免疫机制发现向新型疫苗、治疗性抗体及临床转化。</p><a class="text-link text-link-light" href="mailto:chenyaoqing@mail.sysu.edu.cn">联系导师 <span aria-hidden="true">↗</span></a></div>
       </article>
     </section>
-      <section class="metrics section-shell" aria-label="实验室概览"><div class="metric"><strong>4</strong><span>研究方向</span></div><div class="metric"><strong>20+</strong><span>团队成员 · 示例</span></div><div class="metric"><strong>20+</strong><span>发表论文 · 示例</span></div><div class="metric"><strong>9</strong><span>科研项目 · 示例</span></div></section>
+      <section class="metrics section-shell" aria-label="实验室概览"><div class="metric"><strong>4</strong><a class="metric-link" href="#zh-research">研究方向 <span aria-hidden="true">↗</span></a></div><div class="metric"><strong>20+</strong><a class="metric-link" href="#zh-team">团队成员 <span aria-hidden="true">↗</span></a></div><div class="metric"><strong>20+</strong><a class="metric-link" href="#zh-publications">发表论文 <span aria-hidden="true">↗</span></a></div><div class="metric"><strong>9</strong><a class="metric-link" href="./projects.html">科研项目 <span aria-hidden="true">↗</span></a></div></section>
       <section class="about section-shell section-grid" id="zh-about"><div><p class="section-kicker">ABOUT THE LAB</p><h2>从免疫机制解析到广谱疫苗设计</h2></div><div class="about-copy"><p>实验室聚焦流感病毒、新冠病毒等呼吸道病毒的感染免疫与疫苗研发，重点研究病毒变异背景下的B细胞免疫应答、抗体反应及BCR免疫组库，解析广谱保护性免疫形成的关键机制与保守抗原靶点。</p><p>我们结合单细胞测序、BCR免疫组库、高通量人源单克隆抗体筛选、结构生物信息学与AI辅助蛋白设计等技术，围绕流感病毒HA/NA、新冠病毒关键抗原等开展理性免疫原设计，推进广谱流感疫苗、黏膜疫苗及治疗性人单克隆抗体的研发与临床转化。</p><blockquote>从免疫机制中寻找答案，以理性设计推动更广谱、更持久的免疫保护。</blockquote></div></section>
       <section class="research-section" id="zh-research"><div class="section-shell"><div class="section-heading"><div><p class="section-kicker">RESEARCH</p><h2>我们的研究</h2></div><p>聚焦呼吸道病毒广谱防护，围绕疫苗、抗体与B细胞免疫开展四个相互支撑的研究方向。</p></div><div class="research-grid"><article class="research-card"><span class="card-number">01</span><div><h3>广谱流感疫苗</h3><p class="title-en">Broadly Protective Influenza Vaccines</p></div><p>聚焦流感病毒HA与NA等关键抗原，解析保守保护性表位与广谱抗体应答机制，并结合反向疫苗学、结构预测与免疫原设计，开发可应对不同亚型及变异株的广谱流感疫苗。</p><ul aria-label="广谱流感疫苗 主要方法"><li>HA / NA</li><li>保守表位</li><li>反向疫苗学</li></ul></article><article class="research-card"><span class="card-number">02</span><div><h3>广谱新冠黏膜疫苗</h3><p class="title-en">Broadly Protective Mucosal Vaccines against SARS-CoV-2</p></div><p>针对新冠病毒持续变异及现有疫苗阻断传播能力有限的问题，开展广谱免疫原与黏膜疫苗设计，探索鼻腔免疫诱导IgA及系统性免疫应答的机制，提升对变异株的交叉保护与传播阻断能力。</p><ul aria-label="广谱新冠黏膜疫苗 主要方法"><li>RBD免疫原</li><li>黏膜免疫</li><li>IgA</li></ul></article><article class="research-card"><span class="card-number">03</span><div><h3>治疗性人源单克隆抗体</h3><p class="title-en">Therapeutic Human Monoclonal Antibodies</p></div><p>建立人源单克隆抗体筛选与功能评价体系，从病毒感染和免疫应答中发现具有广谱活性的保护性抗体，解析其抗原表位与作用机制，并推动候选抗体向治疗和临床转化。</p><ul aria-label="治疗性人源单克隆抗体 主要方法"><li>人源单抗</li><li>高通量筛选</li><li>临床转化</li></ul></article><article class="research-card"><span class="card-number">04</span><div><h3>B细胞免疫应答与BCR免疫组库</h3><p class="title-en">B-cell Immune Responses &amp; BCR Repertoires</p></div><p>利用单细胞测序与BCR免疫组库分析，解析病毒感染和疫苗接种后B细胞克隆扩增、胚系基因使用与抗体应答的动态变化，揭示广谱保护性免疫形成规律，并为疫苗理性设计提供依据。</p><ul aria-label="B细胞免疫应答与BCR免疫组库 主要方法"><li>单细胞测序</li><li>BCR组库</li><li>克隆演化</li></ul></article></div></div></section>
-      <section class="publications section-shell" id="zh-publications"><div class="section-heading"><div><p class="section-kicker">FEATURED WORK</p><h2>代表成果</h2></div><a class="text-link" href="./publications.html">查看全部成果 <span aria-hidden="true">↗</span></a></div><div class="publication-list"><article class="publication-row"><div class="publication-meta"><span>2018</span><span>Research Article</span></div><div><h3>Influenza Infection in Humans Induces Broadly Cross-Reactive and Protective Neuraminidase-Reactive Antibodies</h3><p>Chen YQ, Wohlbold TJ, Wilson PC*</p><strong>Cell</strong></div><span></span></article><article class="publication-row"><div class="publication-meta"><span>2026</span><span>Research Article</span></div><div><h3>Human monoclonal antibodies isolated after seasonal vaccination broadly neutralize antigenically drifted influenza B viruses.</h3><p>Cai X, Fan M, Chen YQ*</p><strong>Cell Host &amp; Microbe</strong></div><span></span></article><article class="publication-row"><div class="publication-meta"><span>2023</span><span>Research Article</span></div><div><h3>The protective nasal boosting of a triple-RBD subunit vaccine against SARS-CoV-2 following inactivated virus vaccination</h3><p>Yang J, Liu MQ, Chen YQ*, Shi ZL*</p><strong>Signal Transduction and Targeted Therapy</strong></div><span></span></article></div></section>
+      <section class="publications section-shell" id="zh-publications"><div class="section-heading"><div><p class="section-kicker">FEATURED WORK</p><h2>代表成果</h2></div><a class="text-link" href="./publications.html">查看全部成果 <span aria-hidden="true">↗</span></a></div><div class="publication-list"><a class="publication-row" href="https://doi.org/10.1016/j.chom.2026.02.018" target="_blank" rel="noopener noreferrer"><div class="publication-meta"><span>2026</span><span>研究论文</span></div><div><h3>Human Monoclonal Antibodies Isolated after Seasonal Vaccination Broadly Neutralize Antigenically Drifted Influenza B Viruses</h3><p>Xiaoyu Cai, Miao Fan, Yanmei Zhai, Wanyu Luo, Shuning Liu, Kexin Lv, Min Zhao, Lin Liu, Siwei Zhou, Mengxin Xu, Bing He, Yuzhu Sun, Ruixin Zhao, Xingchen Zhu, Yu Kuang, Hongjie Lu, Xinyu Yue, Kuibiao Li, Yu Zhang, Li Yuan, Na Zhou, Feng Ye, Huan Liang, Yiyun Chen, Min Zheng, Zhangyong Hong, Dayan Wang, Zeli Zhang, Yue-Long Shu, Jiwan Ge, Yao-Qing Chen</p><strong>Cell Host &amp; Microbe</strong></div><span aria-hidden="true">↗</span></a><a class="publication-row" href="https://doi.org/10.1038/s41392-023-01421-8" target="_blank" rel="noopener noreferrer"><div class="publication-meta"><span>2023</span><span>研究论文</span></div><div><h3>The Protective Nasal Boosting of a Triple-RBD Subunit Vaccine against SARS-CoV-2 Following Inactivated Virus Vaccination</h3><p>Jingyi Yang, Mei-Qin Liu, Lin Liu, Xian Li, Mengxin Xu, Haofeng Lin, Min Li, Huimin Yan, Yao-Qing Chen, Zheng-Li Shi</p><strong>Signal Transduction and Targeted Therapy</strong></div><span aria-hidden="true">↗</span></a><a class="publication-row" href="https://doi.org/10.1016/j.cell.2018.03.030" target="_blank" rel="noopener noreferrer"><div class="publication-meta"><span>2018</span><span>研究论文</span></div><div><h3>Influenza Infection in Humans Induces Broadly Cross-Reactive and Protective Neuraminidase-Reactive Antibodies</h3><p>Yao-Qing Chen, Teddy John Wohlbold, Nai-Ying Zheng, Min Huang, Yunping Huang, Karlynn E. Neu, Jiwon Lee, Hongquan Wan, Karla Thatcher Rojas, Ericka Kirkpatrick, Carole Henry, Anna-Karin E. Palm, Christopher T. Stamper, Linda Yu-Ling Lan, David J. Topham, John Treanor, Jens Wrammert, Rafi Ahmed, Maryna C. Eichelberger, George Georgiou, Florian Krammer, Patrick C. Wilson</p><strong>Cell</strong></div><span aria-hidden="true">↗</span></a></div></section>
       <section class="people-section" id="zh-team"><div class="section-shell"><div class="section-heading"><div><p class="section-kicker">TEAM</p><h2>团队成员</h2></div><div class="section-heading-action"><p>汇聚不同背景与专长，共同探索免疫机制，推动疫苗与抗体创新。</p><a class="text-link text-link-light" href="./team.html">查看完整团队 <span aria-hidden="true">↗</span></a></div></div><div class="member-grid">
     <article class="member-card">
-      <div class="avatar"><span class="image-fallback">A</span></div>
-      <h3>成员姓名 A</h3><p class="person-name-en">Member A</p><strong>博士后</strong><p>病毒免疫与单细胞组学</p>
+      <div class="avatar"><span class="image-fallback">B</span></div>
+      <h3>成员姓名 A</h3><p class="person-name-en">Member A</p><strong>博士生</strong><p>病毒免疫与单细胞组学</p>
     </article>
     <article class="member-card">
-      <div class="avatar"><span class="image-fallback">B</span></div>
-      <h3>成员姓名 B</h3><p class="person-name-en">Member B</p><strong>博士研究生</strong><p>TCR/BCR免疫组库</p>
+      <div class="avatar"><img class="" src="./assets/people/liu-shuning.png" alt="刘舒宁" style="object-position: center 18%"></div>
+      <h3>刘舒宁</h3><p class="person-name-en">Shu-ning Liu</p><strong>博士后</strong><p>BCR免疫组库</p>
     </article>
     <article class="member-card">
       <div class="avatar"><span class="image-fallback">C</span></div>
@@ -1823,7 +2147,7 @@ a {
       <div class="section-shell footer-grid">
         <div><span class="footer-mark brand-mark-logo"><img class="" src="./assets/brand/lab-logo.jpg" alt=""></span><h2>呼吸道病毒感染免疫与疫苗研发实验室</h2><p>Laboratory of Respiratory Viral Infection, Immunity and Vaccine Development</p></div>
         <div><p class="footer-label">联系方式</p><a href="mailto:chenyaoqing@mail.sysu.edu.cn">chenyaoqing@mail.sysu.edu.cn</a><p>广东省深圳市光明区新湖街道公常路66号 中山大学（深圳校区） 生物安全学院</p><p>医学园1栋西-608</p><p>邮编: 518107</p></div>
-        <div><p class="footer-label">链接</p><a href="#zh-research">研究</a><a href="./publications.html">成果</a><a href="./team.html">团队</a><a href="./news.html">动态</a><a href="#zh-join">加入我们</a></div>
+        <div><p class="footer-label">链接</p><a href="#zh-research">研究</a><a href="./projects.html">项目</a><a href="./publications.html">成果</a><a href="./team.html">团队</a><a href="./news.html">动态</a><a href="#zh-join">加入我们</a></div>
       </div>
       <div class="footer-bottom section-shell"><span>© 2026 Laboratory of Respiratory Viral Infection, Immunity and Vaccine Development</span></div>
     </footer>
